@@ -2,13 +2,19 @@ import React from 'react';
 import './Header.css';
 import PersonIcon from '@material-ui/icons/Person';
 import ForumIcon from '@material-ui/icons/Forum';
+import tinderLogo from './images/tinder.png';
+import IconButton from '@material-ui/core/IconButton';
 
 function Header() {
   return (
     <div className='header'>
-      <PersonIcon />
-      <h2>I am a header</h2>
-      <ForumIcon />
+      <IconButton>
+        <PersonIcon className='header__icon' fontSize='large'/>
+      </IconButton>
+      <img className='header__logo' src={tinderLogo} alt="tinder logo"/>
+      <IconButton>
+       <ForumIcon className='header__icon' fontSize='large'/>
+      </IconButton>
     </div>
   );
 }

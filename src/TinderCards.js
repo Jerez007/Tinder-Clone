@@ -1,4 +1,3 @@
-import { Unsubscribe } from '@material-ui/icons';
 import React, { useState, useEffect } from 'react';
 import TinderCard from 'react-tinder-card';
 import database from './firebase';
@@ -14,16 +13,20 @@ function TinderCards() {
       .onSnapshot((snapshot) => 
         setPeople(snapshot.docs.map((doc) => doc.data()))
     );
+    console.log("If you see this, then useEffect ran");
+
     return () => { //cleanup function
       unsubscribe(); 
     };
-
   }, []); //runs once when compoment loads
+
+  console.log(people);
 
   return (
     <div>
       <div className="tinderCards__cardContainer">
         {people.map((person) => (
+          
           <TinderCard 
           className='swipe' 
           key={person.name} 
@@ -39,4 +42,4 @@ function TinderCards() {
   );
 }
 
-export default TinderCards
+export default TinderCards;
